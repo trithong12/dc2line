@@ -26,12 +26,4 @@ async def on_voice_state_update(member, before, after):
 
 try:
     print("Running")
-    bot.run(discordBotToken)    
-except KeyboardInterrupt:
-    print("Exiting")
-    bot.logout()
-    bot.close()
-finally:
-    bot.logout()
-    bot.close()
-    print("Disconnected")
+    bot.run(discordBotToken)
