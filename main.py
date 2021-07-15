@@ -1,13 +1,14 @@
+from flask import Flask
+app = Flask(__name__)
+@app.route("/")
+def hello():
+    return "Hello!"
+
+
 import os
-
-# from flask import Flask
-
 import discord
 from discord.ext import commands
-
 from functions.sendLineNotifyMessage import sendLineNotifyMessage
-
-# app = Flask(__name__)
 
 bot = commands.Bot(command_prefix='>t')
 
