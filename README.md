@@ -2,10 +2,10 @@
 This tiny app will send a message to LINE group when a member has joined the Discord guild voice channel.
 
 # Motivation
-When you are in a Discord server (or guild) and do care about the members connecting to voice channels, you may need to receive notifications from LINE at the moment.
+When I am in a Discord server (or guild) and do care about the members connecting to voice channels, I want to receive notifications from LINE at the moment.
 
-# Deployment
-This app is deployed on Heroku.
+# Goal
+Bridge the gap using Discord-bot Python SDK and LINE Notify API.
 
 # Usage
 - Create a Discord bot, please refer to: https://discord.com/developers/docs/intro
@@ -33,3 +33,9 @@ This app is deployed on Heroku.
     - Linux/MacOS: <code>$ source ./venv/bin/activate</code>
 - Execution:
     <code>$ python main.py</code>
+
+# Deployment
+This app is deployed on Heroku.
+
+## Keywords
+Discord-bot, LINE Notify API, Python
