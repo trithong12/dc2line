@@ -16,19 +16,15 @@ bot = commands.Bot(command_prefix='>t')
 
 lineNotifyToken = os.environ["LINE_NOTIFY_TOKEN"]
 discordBotToken = os.environ["DISCORD_BOT_TOKEN"]
+whitelistChannels = [eval(x) for x in os.environ["WHITELIST_CHANNELS"].split(';') if x != ""]
 log = dict()
 cooldown = 1.5 # 1.5 minutes
 
 @bot.listen()
 async def on_voice_state_update(member, before, after):
-    if member.bot:
-        return
-    if not member or not after.channel:
-        return
-        
-    needToNotifyChannelList = [eval(x) for x in os.environ["NEED_TO_NOTIFY_CHANNEL_LIST"].split(';')]
-    if after.channel.id not in needToNotifyChannelList:
-        return
+    if member.bot: return
+    if not member or not after.channel: return
+    if after.channel.id not in whitelistChannels: return
 
     # check cooldown
     now = datetime.datetime.now()

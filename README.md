@@ -11,12 +11,12 @@ This app is deployed on Heroku.
     LINE_NOTIFY_TOKEN
     DISCORD_BOT_TOKEN
     MESSAGE_TEMPLATE
-    NEED_TO_NOTIFY_CHANNEL_LIST
+    WHITELIST_CHANNELS
     ```
     - To get the <code>LINE_NOTIFY_TOKEN</code>, please refer to this page: https://notify-bot.line.me/my/
     - To get the <code>DISCORD_BOT_TOKEN</code>, please refer to this page: https://discord.com/developers/docs/intro
     - <code>MESSAGE_TEMPLATE</code>: a message string with 3 arguments: <code>userName</code>, <code>guildName</code>, <code>channelName</code>.
-    - <code>NEED_TO_NOTIFY_CHANNEL_LIST</code>: includes all the whitelist channel ids (delimited by colon <code>;</code>)
+    - <code>WHITELIST_CHANNELS</code>: includes all the whitelist channel ids (delimited by colon <code>;</code>)
         > Whitelist channels: when a member connect to a whitelist channel, there will be a notification sent to LINE group.
 
 - Install requirements:
