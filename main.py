@@ -26,13 +26,19 @@ async def on_voice_state_update(member, before, after):
     if not member or not after.channel:
         return
         
+    needToNotifyChannelList = [eval(x) for x in os.environ["NEED_TO_NOTIFY_CHANNEL_LIST"].split(';')]
+    if after.channel.id not in needToNotifyChannelList:
+        return
+
+    # check cooldown
     now = datetime.datetime.now()
     if member.id in log:
         lastTimestamp = log[member.id]        
         if now - lastTimestamp < datetime.timedelta(minutes=cooldown):
             print("白目 {userName} 的冷卻時間還有 {cooldown}".format(userName=member.name, cooldown=datetime.timedelta(minutes=cooldown) - (now - lastTimestamp)))
             return
-        
+
+    # send messages to Line group
     log[member.id] = now
     message = os.environ["MESSAGE_TEMPLATE"].format(userName=member.name, guildName=member.guild, channelName=after.channel.name)
     sendLineNotifyMessage(lineNotifyToken, message)
