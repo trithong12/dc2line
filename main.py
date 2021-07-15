@@ -22,7 +22,7 @@ async def on_voice_state_update(member, before, after):
     if not member or not after.channel:
         return
 
-    message = "%s 剛進入群組《%s》語音頻道《%s》" % (member.name, member.guild, after.channel.name)
+    message = os.environ["MESSAGE_TEMPLATE"].format(userName=member.name, guildName=member.guild, channelName=after.channel.name)
     sendLineNotifyMessage(lineNotifyToken, message)
 
 print("Running")
