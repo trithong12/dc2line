@@ -2,7 +2,7 @@
 This tiny app will send a message to Line group when a member has joined the Discord guild voice channel.
 
 # Deployment
-This app is deployed on Heroku
+This app is deployed on Heroku.
 
 # Usage
 - Clone this repository and <code>cd</code> into the folder.
